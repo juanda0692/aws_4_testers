@@ -16,7 +16,6 @@ const invokeLambda = async () => {
     try {
         const response = await lambda.send(command);
         const responsePayload = JSON.parse(Buffer.from(response.Payload as Uint8Array).toString());
-        console.log("Respuesta del Lambda: ", responsePayload);
         if (responsePayload.errorMessage) {
             console.error("Error en la ejecución del Lambda: ", responsePayload.errorMessage);
         } else {
