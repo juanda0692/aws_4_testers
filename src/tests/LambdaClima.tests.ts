@@ -10,5 +10,4 @@ test('Lambda Clima Function positive Tests', async ({ }) => {
   expect(body).toHaveProperty('description');
   expect(body.temperature).toBeGreaterThan(10);
   expect(body.temperature).toBeLessThan(40);
-  console.log(response);
 });
