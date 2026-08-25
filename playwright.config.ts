@@ -33,8 +33,27 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'lamda'
-    }
+      name: 'lamda',
+      testDir: 'src/tests',
+      testMatch: 'LambdaClima.tests.ts',
+    },
+    {
+      name: 'shop-ui',
+      testDir: 'src/tests/shop/ui',
+      use: {
+        ...devices['Desktop Chrome'],
+        /* Use the Chrome already installed on this machine instead of downloading Playwright's own Chromium build. */
+        channel: 'chrome',
+        baseURL: process.env.SHOP_BASE_URL || 'https://sauce-demo.myshopify.com',
+      },
+    },
+    {
+      name: 'shop-api',
+      testDir: 'src/tests/shop/api',
+      use: {
+        baseURL: process.env.SHOP_BASE_URL || 'https://sauce-demo.myshopify.com',
+      },
+    },
   ],
 
   /* Run your local dev server before starting the tests */

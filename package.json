@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clima": "npx ts-node src/Lambdas/ClimaLambda.ts"
+    "clima": "npx ts-node src/Lambdas/ClimaLambda.ts",
+    "test": "playwright test",
+    "test:shop": "playwright test --project=shop-ui --project=shop-api",
+    "test:shop:ui": "playwright test --project=shop-ui",
+    "test:shop:api": "playwright test --project=shop-api",
+    "test:shop:headed": "playwright test --project=shop-ui --headed",
+    "test:report": "playwright show-report"
   },
   "author": "",
   "license": "ISC",
